@@ -164,7 +164,7 @@ export default function ProfileReservations({ user, limit }) {
                   <Button
                     size="sm"
                     variant="text"
-                    onClick={() => window.open('mailto:support@locgames.com')}
+                    onClick={() => window.open('mailto:support@Louez.com')}
                   >
                     Support
                   </Button>

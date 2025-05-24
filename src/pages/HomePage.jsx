@@ -49,7 +49,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="pt-20 bg-light dark:bg-dark min-h-screen flex flex-col">
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col pt-20">
       <Header />
 
       {/* Hero Section */}
@@ -57,8 +57,8 @@ export default function HomePage() {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center">
             <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                <span className="text-indigo-600">LocGames</span> : Louez, Jouez, Décompressez !
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-6">
+                <span className="text-indigo-600">Louez</span>, Jouez, Décompressez !
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-lg mx-auto lg:mx-0">
                 Après une journée de cours chargée, une interrogation stressante ou un examen épuisant, accordez-vous une pause bien méritée.
@@ -90,7 +90,7 @@ export default function HomePage() {
       {/* Search Section */}
       <section className="py-10 px-4">
         <div className="container mx-auto">
-          <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8">
             <SearchBar onSearch={fetchProducts} />
           </div>
         </div>
@@ -100,8 +100,8 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="section-title">Consoles Populaires</h2>
-            <p className="section-subtitle">
+            <h2 className="section-title text-gray-900 dark:text-gray-100">Consoles Populaires</h2>
+            <p className="section-subtitle text-gray-600 dark:text-gray-300">
               Découvrez notre sélection de consoles les plus demandées par nos clients
             </p>
           </div>
@@ -229,114 +229,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-
-      {/* Testimonials Section 
-      <section className="py-16">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Ce que disent nos clients</h2>
-            <p className="section-subtitle">
-              Découvrez les expériences de nos utilisateurs avec LocGames
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          
-          */}
-
-            {/* Testimonial 1 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-              <div className="flex mb-4">
-                <div className="star-rating">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                "J'ai pu tester la PS5 avant de l'acheter grâce à LocGames. Le service est impeccable et la console était comme neuve."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 flex items-center justify-center text-white font-bold">
-                  M
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold">Maxime D.</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Étudiant en informatique</p>
-                </div>
-              </div>
-            </div>
-            */}
-            {/* Testimonial 2 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-              <div className="flex mb-4">
-                <div className="star-rating">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                "Parfait pour les soirées gaming entre amis ! J'ai loué une Switch avec 4 manettes pour un weekend, tout était nickel."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 flex items-center justify-center text-white font-bold">
-                  S
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold">Sophie L.</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Étudiante en médecine</p>
-                </div>
-              </div>
-            </div>
-
-
-            */}
-
-
-            {/* Testimonial 3 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-              <div className="flex mb-4">
-                <div className="star-rating">
-                  {[...Array(4)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                  <svg className="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                "Service client très réactif. J'ai eu un petit souci avec ma Xbox, ils l'ont remplacée en moins de 24h."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 flex items-center justify-center text-white font-bold">
-                  T
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold">Thomas B.</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Étudiant en droit</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      */}
-
-
-
-      {/* CTA Section */}
 
       <ReadyToStart />
       <Footer />

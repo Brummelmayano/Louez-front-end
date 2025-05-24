@@ -11,14 +11,11 @@ const api = axios.create({
   },
 });
 
-// Intercepteur pour ajouter automatiquement le token JWT si présent
+// Intercepteur pour ajouter automatiquement le token DRF authtoken si présent
 api.interceptors.request.use(config => {
   const token = localStorage.getItem('token');
-
-
-  //  if (token && isValidToken(token)) {
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = `Token ${token}`; // <-- DRF authtoken
   }
   return config;
 });

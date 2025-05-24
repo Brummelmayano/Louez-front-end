@@ -79,7 +79,7 @@ export default function HowItWorksPage({ darkMode, toggleDarkMode }) {
       answer: "Oui, vous pouvez annuler gratuitement jusqu'à 48h avant le début de la location. Au-delà, des frais d'annulation de 50% s'appliquent. Si le propriétaire annule, vous êtes intégralement remboursé et recevez un coupon de 10% pour votre prochaine location."
     },
     {
-      question: "Comment devenir loueur sur LocGames ?",
+      question: "Comment devenir loueur sur Louez ?",
       answer: "C'est simple ! Créez votre compte, complétez votre profil avec vérification d'identité, puis ajoutez vos consoles disponibles à la location. Prenez des photos de qualité, décrivez précisément l'état et les accessoires inclus, et définissez votre tarif journalier."
     },
     {
@@ -89,15 +89,15 @@ export default function HowItWorksPage({ darkMode, toggleDarkMode }) {
   ];
 
   return (
-    <>
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col">
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <main className="pt-20">
+      <main className="pt-20 flex-1">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-indigo-600 to-violet-600 text-white py-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Comment ça marche</h1>
             <p className="text-xl max-w-2xl mx-auto mb-8 text-indigo-100">
-              LocGames vous permet de louer des consoles de jeux entre étudiants facilement et en toute sécurité.
+              Louez vous permet de louer des consoles de jeux entre étudiants facilement et en toute sécurité.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button 
@@ -160,7 +160,7 @@ export default function HowItWorksPage({ darkMode, toggleDarkMode }) {
         <section className="py-16 bg-gray-50 dark:bg-gray-800">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-              Pourquoi choisir LocGames ?
+              Pourquoi choisir Louez ?
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -238,7 +238,7 @@ export default function HowItWorksPage({ darkMode, toggleDarkMode }) {
       </main>
       <ReadyToStart />
       <Footer />
-    </>
+    </div>
   );
 }
 

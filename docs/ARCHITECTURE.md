@@ -2,7 +2,7 @@
 
 ## Vue d'ensemble
 
-LocGames est une application web React moderne utilisant l'architecture suivante :
+Louez est une application web React moderne utilisant l'architecture suivante :
 
 ### Frontend
 - React 19.1.0 avec Hooks
@@ -25,7 +25,7 @@ LocGames est une application web React moderne utilisant l'architecture suivante
 ## Structure du Projet
 
 ```
-locgames/
+Louez/
 ├── docs/               # Documentation
 ├── public/            # Assets statiques
 ├── src/

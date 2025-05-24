@@ -10,7 +10,7 @@ export default function ProfileSupport() {
         <li>• <a href="/privacy" className="text-indigo-600 underline">Politique de confidentialité</a></li>
       </ul>
       <p>
-        Besoin d’aide ? <a href="mailto:support@locgames.com" className="text-indigo-600 underline">Contactez le support</a>
+        Besoin d’aide ? <a href="mailto:support@Louez.com" className="text-indigo-600 underline">Contactez le support</a>
       </p>
     </div>
   );

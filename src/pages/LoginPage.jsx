@@ -6,6 +6,8 @@ import Footer from '../components/Footer';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useGoogleLogin } from '@react-oauth/google';
+import { FacebookLogo } from 'phosphor-react';
 
 export default function LoginPage({ darkMode, toggleDarkMode }) {
   const { login, user } = useAuth();
@@ -15,8 +17,6 @@ export default function LoginPage({ darkMode, toggleDarkMode }) {
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Récupère la page d'origine ou "/" par défaut
   const from = location.state?.from?.pathname || '/';
 
   useEffect(() => {
@@ -38,13 +38,11 @@ export default function LoginPage({ darkMode, toggleDarkMode }) {
       window.dispatchEvent(new CustomEvent('toast', {
         detail: {
           type: 'success',
-          message: 'Connexion réussie ! Bienvenue sur LocGames.',
+          message: 'Connexion réussie ! Bienvenue sur Louez.',
           duration: 3000
         }
       }));
-      // La redirection sera gérée par le useEffect ci-dessus
     } catch (err) {
-      console.error('Login error:', err);
       setError(
         err.response?.data?.message ||
         'Échec de la connexion. Veuillez vérifier vos identifiants.'
@@ -54,8 +52,41 @@ export default function LoginPage({ darkMode, toggleDarkMode }) {
     }
   };
 
+  // Connexion avec Google
+  const googleLogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      try {
+        const payload = {
+          provider: 'google',
+          access_token: tokenResponse.access_token
+        };
+        // Pas de token dans le header ici, car on n'est pas encore authentifié côté backend
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/social/login/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.key) {
+          localStorage.setItem('token', data.key);
+          window.location.reload();
+        } else {
+          setError("Connexion Google échouée.");
+        }
+      } catch (e) {
+        setError("Erreur lors de la connexion Google.");
+      }
+    },
+    onError: () => {
+      setError("Erreur lors de la connexion Google.");
+    },
+    scope: 'openid email profile'
+  });
+
   return (
-    <>
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col">
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <main className="flex-grow flex items-center justify-center py-16 px-4">
         <div className="w-full max-w-md">
@@ -64,7 +95,7 @@ export default function LoginPage({ darkMode, toggleDarkMode }) {
               <div className="text-center mb-8">
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Connexion</h1>
                 <p className="mt-2 text-gray-600 dark:text-gray-400">
-                  Accédez à votre compte LocGames
+                  Accédez à votre compte Louez
                 </p>
               </div>
               {error && (
@@ -162,7 +193,27 @@ export default function LoginPage({ darkMode, toggleDarkMode }) {
                   </div>
                 </div>
                 <div className="mt-6 grid grid-cols-2 gap-3">
-                  {/* ...boutons Google/Facebook... */}
+                  {/* Bouton Google Sign-In */}
+                  <div className="flex justify-center">
+                    <button
+                      type="button"
+                      onClick={() => googleLogin()}
+                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                    >
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21.35 11.1H12v2.8h5.35c-.23 1.25-1.4 3.67-5.35 3.67-3.22 0-5.85-2.67-5.85-5.97s2.63-5.97 5.85-5.97c1.83 0 3.06.78 3.76 1.44l2.57-2.5C17.18 3.59 14.8 2.5 12 2.5 6.75 2.5 2.5 6.75 2.5 12s4.25 9.5 9.5 9.5c5.47 0 9.09-3.84 9.09-9.23 0-.62-.07-1.09-.14-1.57z"/>
+                      </svg>
+                      <span className="ml-2">Google</span>
+                    </button>
+                  </div>
+                  {/* Bouton Facebook (à implémenter si besoin) */}
+                  <button
+                    type="button"
+                    className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  >
+                    <FacebookLogo size={20} weight="bold" className="text-blue-600" />
+                    <span className="ml-2">Facebook</span>
+                  </button>
                 </div>
               </div>
               <p className="mt-8 text-center text-sm text-gray-600 dark:text-gray-400">
@@ -180,6 +231,6 @@ export default function LoginPage({ darkMode, toggleDarkMode }) {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

@@ -18,7 +18,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="ml-3 text-xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">LocGames</h3>
+              <h3 className="ml-3 text-xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Louez</h3>
             </div>
             <p className="text-gray-300 mb-4">
               Plateforme de location de consoles entre étudiants. Jouez plus, dépensez moins.
@@ -128,7 +128,7 @@ export default function Footer() {
                 <svg className="w-5 h-5 text-indigo-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span className="text-gray-300">support@locgames.edu</span>
+                <span className="text-gray-300">support@Louez.edu</span>
               </li>
               <li className="flex items-start">
                 <svg className="w-5 h-5 text-indigo-600 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,7 +153,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-12 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} LocGames. Tous droits réservés.
+            © {new Date().getFullYear()} Louez. Tous droits réservés.
           </p>
         </div>
       </div>

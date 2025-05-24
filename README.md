@@ -1,4 +1,4 @@
-# LocGames Frontend
+# Louez Frontend
 
 Application React + Vite + Tailwind CSS pour la location de consoles de jeux vidéo entre étudiants.
 
@@ -24,7 +24,7 @@ Application React + Vite + Tailwind CSS pour la location de consoles de jeux vid
 
 ## Présentation
 
-**LocGames** est une plateforme web permettant aux étudiants de louer et réserver des consoles de jeux vidéo en toute simplicité. L'application propose une expérience moderne, rapide et sécurisée, avec gestion du panier, réservation, paiement, profil utilisateur, avis, et bien plus.
+**Louez** est une plateforme web permettant aux étudiants de louer et réserver des consoles de jeux vidéo en toute simplicité. L'application propose une expérience moderne, rapide et sécurisée, avec gestion du panier, réservation, paiement, profil utilisateur, avis, et bien plus.
 
 ---
 
@@ -62,7 +62,7 @@ Le projet suit une architecture modulaire :
 
 ```bash
 git clone https://github.com/Brummelmayano/Louez-front-end
-cd locgames-frontend
+cd Louez-frontend
 ```
 
 2. **Installer les dépendances**
@@ -127,7 +127,7 @@ Voir [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) pour plus de détails.
 ## Structure des dossiers
 
 ```
-locgames-frontend/
+Louez-frontend/
 ├── public/                # Fichiers statiques
 ├── src/
 │   ├── api/               # Services API (Axios)
@@ -187,8 +187,8 @@ Merci de lire [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) avant toute contribut
 
 ## Support
 
-Pour toute question ou bug, ouvrez une issue sur GitHub ou contactez l’équipe à [support@locgames.com](mailto:support@locgames.com).
+Pour toute question ou bug, ouvrez une issue sur GitHub ou contactez l’équipe à [support@Louez.com](mailto:support@Louez.com).
 
 ---
 
-© LocGames 2025. Tous droits réservés.
+© Louez 2025. Tous droits réservés.

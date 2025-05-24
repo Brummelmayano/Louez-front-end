@@ -5,10 +5,10 @@ import Footer from '../components/Footer';
 
 export default function PrivacyPage({ darkMode, toggleDarkMode }) {
   return (
-    <>
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col">
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       
-      <main className="pt-24 pb-16">
+      <main className="pt-24 pb-16 flex-1">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Politique de Confidentialité</h1>
           
@@ -19,7 +19,7 @@ export default function PrivacyPage({ darkMode, toggleDarkMode }) {
             
             <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">1. Introduction</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              Chez LocGames, nous accordons une grande importance à la protection de vos données personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons, partageons et protégeons vos informations lorsque vous utilisez notre site web, notre application mobile et nos services (collectivement désignés comme les "Services").
+              Chez Louez, nous accordons une grande importance à la protection de vos données personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons, partageons et protégeons vos informations lorsque vous utilisez notre site web, notre application mobile et nos services (collectivement désignés comme les "Services").
             </p>
             <p className="text-gray-600 dark:text-gray-300">
               En utilisant nos Services, vous acceptez les pratiques décrites dans cette Politique de Confidentialité. Si vous n'acceptez pas cette politique, veuillez ne pas utiliser nos Services.
@@ -51,6 +51,6 @@ export default function PrivacyPage({ darkMode, toggleDarkMode }) {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

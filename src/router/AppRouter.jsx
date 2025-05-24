@@ -69,19 +69,19 @@ export default function AppRouter() {
     
     // Update page title based on view
     const titles = {
-      'home': 'LocGames - Location de consoles entre étudiants',
-      'product': data?.name ? `${data.name} - LocGames` : 'Détail du produit - LocGames',
-      'products': 'Toutes nos consoles - LocGames',
-      'reserve': 'Réservation - LocGames',
-      'profile': 'Mon profil - LocGames',
-      'login': 'Connexion - LocGames',
-      'signup': 'Inscription - LocGames',
-      'how-it-works': 'Comment ça marche - LocGames',
-      'terms': 'Conditions générales - LocGames',
-      'privacy': 'Politique de confidentialité - LocGames',
+      'home': 'Louez - Location de consoles entre étudiants',
+      'product': data?.name ? `${data.name} - Louez` : 'Détail du produit - Louez',
+      'products': 'Toutes nos consoles - Louez',
+      'reserve': 'Réservation - Louez',
+      'profile': 'Mon profil - Louez',
+      'login': 'Connexion - Louez',
+      'signup': 'Inscription - Louez',
+      'how-it-works': 'Comment ça marche - Louez',
+      'terms': 'Conditions générales - Louez',
+      'privacy': 'Politique de confidentialité - Louez',
     };
     
-    document.title = titles[to] || 'LocGames';
+    document.title = titles[to] || 'Louez';
   };
 
   if (loading) {

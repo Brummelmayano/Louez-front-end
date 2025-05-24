@@ -73,11 +73,11 @@ export default function ProductsPage() {
   };
 
   return (
-    <>
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col">
       <Header />
-      <main className="pt-20 pb-16">
+      <main className="pt-20 pb-16 flex-1">
         <div className="container mx-auto px-4">
-          <div className="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 mb-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <SearchBar onSearch={fetchProducts} />
               <div className="flex flex-wrap items-center gap-4">
@@ -185,7 +185,7 @@ export default function ProductsPage() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

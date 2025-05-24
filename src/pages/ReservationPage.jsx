@@ -97,9 +97,9 @@ export default function ReservationPage() {
   };
 
   return (
-    <div className="pt-20 bg-[#f8f9ff] min-h-screen flex flex-col">
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col pt-20">
       <Header />
-      <main className="flex-grow max-w-md mx-auto p-4 bg-white rounded-lg shadow my-8 space-y-4">
+      <main className="flex-grow max-w-md mx-auto p-4 bg-white dark:bg-gray-800 rounded-lg shadow my-8 space-y-4">
         {msg && <Toast type={msg.type}>{msg.text}</Toast>}
         {error && <p className="text-red-500">{error}</p>}
 

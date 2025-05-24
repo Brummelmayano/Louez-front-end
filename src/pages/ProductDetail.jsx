@@ -123,9 +123,9 @@ export default function ProductDetail() {
   };
 
   return (
-    <div className="pt-20 bg-gray-50 min-h-screen flex flex-col">
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col pt-20">
       <Header />
-      <section className="bg-white shadow-lg mb-12 animate-fadeIn px-12">
+      <section className="bg-white dark:bg-gray-800 shadow-lg mb-12 animate-fadeIn px-12">
         <div className="container mx-auto flex flex-col lg:flex-row items-center p-6">
           <div className="lg:w-1/2 wl p-4">
             <img

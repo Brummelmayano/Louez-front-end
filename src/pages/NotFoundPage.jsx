@@ -9,8 +9,7 @@ import { useNavigate } from 'react-router-dom';
 export default function NotFoundPage() {
   const navigate = useNavigate();
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
-
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow pt-20 bg-light dark:bg-dark min-h-screen flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-6xl font-bold text-gray-800 dark:text-gray-100 mb-4">
@@ -25,6 +24,5 @@ export default function NotFoundPage() {
       </main>
       <Footer />
     </div>
-    
   );
 }

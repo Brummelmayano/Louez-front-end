@@ -83,10 +83,10 @@ export default function ReserveCart() {
   const total = selectedItems.reduce((sum, item) => sum + parseFloat(item.price || 0), 0);
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 flex flex-col items-center pt-24 pb-8">
-        <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 w-full max-w-2xl">
           <h1 className="text-2xl font-bold mb-6 text-center">Réserver la sélection</h1>
           {selectedItems.length === 0 ? (
             <div className="text-center text-gray-500">Aucun produit sélectionné.</div>

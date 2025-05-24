@@ -5,10 +5,10 @@ import Footer from '../components/Footer';
 
 export default function TermsPage({ darkMode, toggleDarkMode }) {
   return (
-    <>
+    <div className="bg-background dark:bg-gray-900 min-h-screen flex flex-col">
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       
-      <main className="pt-24 pb-16">
+      <main className="pt-24 pb-16 flex-1">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Conditions Générales d'Utilisation</h1>
           
@@ -19,7 +19,7 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
             
             <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">1. Introduction</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              Bienvenue sur LocGames, une plateforme de location de consoles de jeux vidéo entre étudiants. Les présentes Conditions Générales d'Utilisation (ci-après "CGU") régissent votre utilisation de notre site web, de notre application mobile et de nos services (collectivement désignés comme les "Services").
+              Bienvenue sur Louez, une plateforme de location de consoles de jeux vidéo entre étudiants. Les présentes Conditions Générales d'Utilisation (ci-après "CGU") régissent votre utilisation de notre site web, de notre application mobile et de nos services (collectivement désignés comme les "Services").
             </p>
             <p className="text-gray-600 dark:text-gray-300">
               En accédant à nos Services ou en les utilisant, vous acceptez d'être lié par ces CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser nos Services.
@@ -27,7 +27,7 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
             
             <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">2. Définitions</h2>
             <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300">
-              <li><strong>"LocGames"</strong>, <strong>"nous"</strong>, <strong>"notre"</strong> ou <strong>"nos"</strong> désigne la société LocGames SAS.</li>
+              <li><strong>"Louez"</strong>, <strong>"nous"</strong>, <strong>"notre"</strong> ou <strong>"nos"</strong> désigne la société Louez SAS.</li>
               <li><strong>"Utilisateur"</strong>, <strong>"vous"</strong>, <strong>"votre"</strong> ou <strong>"vos"</strong> désigne toute personne qui accède à nos Services ou les utilise.</li>
               <li><strong>"Propriétaire"</strong> désigne un Utilisateur qui propose une console à la location via nos Services.</li>
               <li><strong>"Locataire"</strong> désigne un Utilisateur qui loue une console via nos Services.</li>
@@ -91,7 +91,7 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
             
             <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">5. Paiements et frais</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              Les tarifs de location sont fixés par les Propriétaires. LocGames prélève une commission de 10% sur chaque transaction réalisée via la plateforme.
+              Les tarifs de location sont fixés par les Propriétaires. Louez prélève une commission de 10% sur chaque transaction réalisée via la plateforme.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mt-3">
               Les paiements sont traités de manière sécurisée par notre prestataire de paiement. Le montant total de la location est débité au moment de la confirmation de la réservation par le Propriétaire.
@@ -107,7 +107,7 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
             
             <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">6. Assurance et dommages</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              LocGames propose une assurance qui couvre les dommages accidentels pouvant survenir pendant la période de location. Cette assurance est incluse dans le prix de la location.
+              Louez propose une assurance qui couvre les dommages accidentels pouvant survenir pendant la période de location. Cette assurance est incluse dans le prix de la location.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mt-3">
               En cas de dommage :
@@ -121,7 +121,7 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
             
             <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">7. Propriété intellectuelle</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              Tous les droits de propriété intellectuelle relatifs à nos Services, y compris les logos, marques, textes, images, vidéos, logiciels et bases de données, sont la propriété exclusive de LocGames ou de ses concédants de licence.
+              Tous les droits de propriété intellectuelle relatifs à nos Services, y compris les logos, marques, textes, images, vidéos, logiciels et bases de données, sont la propriété exclusive de Louez ou de ses concédants de licence.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mt-3">
               Vous n'êtes pas autorisé à copier, modifier, distribuer, vendre ou louer une partie de nos Services sans notre autorisation écrite préalable.
@@ -129,7 +129,7 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
             
             <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">8. Limitation de responsabilité</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              LocGames agit uniquement en tant qu'intermédiaire entre les Propriétaires et les Locataires. Nous ne sommes pas responsables :
+              Louez agit uniquement en tant qu'intermédiaire entre les Propriétaires et les Locataires. Nous ne sommes pas responsables :
             </p>
             <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300">
               <li>De l'exactitude des informations fournies par les Utilisateurs.</li>
@@ -143,7 +143,7 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
               Nous nous réservons le droit de suspendre ou de résilier votre compte à tout moment, sans préavis, si nous estimons que vous avez violé ces CGU ou pour toute autre raison à notre seule discrétion.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mt-3">
-              Vous pouvez résilier votre compte à tout moment en nous contactant à support@locgames.edu.
+              Vous pouvez résilier votre compte à tout moment en nous contactant à support@Louez.edu.
             </p>
             
             <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">10. Modifications des CGU</h2>
@@ -164,10 +164,10 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
               Pour toute question concernant ces CGU, veuillez nous contacter à :
             </p>
             <p className="text-gray-600 dark:text-gray-300 mt-3">
-              LocGames SAS<br />
+              Louez SAS<br />
               123 Avenue des Jeux<br />
               75000 Paris, France<br />
-              Email : legal@locgames.edu<br />
+              Email : legal@Louez.edu<br />
               Téléphone : 01 23 45 67 89
             </p>
           </div>
@@ -175,7 +175,7 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
       </main>
       
       <Footer />
-    </>
+    </div>
   );
 }
 

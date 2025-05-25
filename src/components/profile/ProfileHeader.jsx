@@ -12,22 +12,34 @@ export default function ProfileHeader({ user, onEdit, onLogout }) {
         />
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-2xl font-bold">{user.first_name} {user.last_name}</h2>
-            <span className="text-sm text-gray-500">@{user.username}</span>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{user.first_name} {user.last_name}</h2>
+            <span className="text-sm text-gray-500 dark:text-gray-400">@{user.username}</span>
           </div>
           <div className="flex items-center gap-2 mt-1">
-            <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">
+            <span className="text-xs bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 px-2 py-1 rounded">
               Membre depuis {new Date(user.date_joined).toLocaleDateString()}
             </span>
-            <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">
+            <span className="text-xs bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300 px-2 py-1 rounded">
               Statut : {user.loyalty_level || 'Bronze'}
             </span>
           </div>
         </div>
       </div>
       <div className="flex gap-2 mt-4 md:mt-0">
-        <Button variant="secondary" onClick={onEdit}>Modifier le profil</Button>
-        <Button variant="danger" onClick={onLogout}>Déconnexion</Button>
+        <Button
+          variant="secondary"
+          onClick={onEdit}
+          className="text-gray-900 dark:text-gray-100"
+        >
+          Modifier le profil
+        </Button>
+        <Button
+          variant="danger"
+          onClick={onLogout}
+          className="text-gray-900 dark:text-gray-100"
+        >
+          Déconnexion
+        </Button>
       </div>
     </div>
   );

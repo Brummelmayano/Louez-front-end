@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../api/api';
 import Button from '../Button';
-import Modal from '../Modal'; // Crée ce composant si tu veux un modal natif
+import Modal from '../Modal';
 import { useNavigate } from 'react-router-dom';
 
 const STATUS_LABELS = {
@@ -13,11 +13,11 @@ const STATUS_LABELS = {
 };
 
 const STATUS_COLORS = {
-  pending: 'bg-yellow-100 text-yellow-700',
-  active: 'bg-green-100 text-green-700',
-  completed: 'bg-gray-100 text-gray-700',
-  cancelled: 'bg-red-100 text-red-700',
-  rejected: 'bg-red-100 text-red-700',
+  pending: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
+  active: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
+  completed: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200',
+  cancelled: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
+  rejected: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
 };
 
 export default function ProfileReservations({ user, limit }) {
@@ -25,12 +25,11 @@ export default function ProfileReservations({ user, limit }) {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState(null); // Pour modal détail
-  const [cancelId, setCancelId] = useState(null); // Pour annulation
+  const [selected, setSelected] = useState(null);
+  const [cancelId, setCancelId] = useState(null);
   const [feedback, setFeedback] = useState('');
   const navigate = useNavigate();
 
-  // Pagination : 5 réservations par page
   const PAGE_SIZE = 5;
 
   useEffect(() => {
@@ -82,18 +81,16 @@ export default function ProfileReservations({ user, limit }) {
   };
 
   const handleDownloadInvoice = (id) => {
-    // À adapter selon ton backend
     window.open(`${import.meta.env.VITE_API_URL}/reservations/${id}/invoice/`, '_blank');
   };
 
-  // Responsive : grille sur mobile, tableau sur desktop
   return (
     <div>
-      <h3 className="text-xl font-semibold mb-4">Mes réservations</h3>
+      <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Mes réservations</h3>
       {loading ? (
-        <div className="text-center py-8">Chargement…</div>
+        <div className="text-center py-8 text-gray-900 dark:text-gray-100">Chargement…</div>
       ) : reservations.length === 0 ? (
-        <div className="text-center text-gray-500">Aucune réservation trouvée.</div>
+        <div className="text-center text-gray-500 dark:text-gray-400">Aucune réservation trouvée.</div>
       ) : (
         <div className="space-y-4">
           {(limit ? reservations.slice(0, limit) : reservations).map(r => (
@@ -113,24 +110,24 @@ export default function ProfileReservations({ user, limit }) {
                   className="w-16 h-16 object-cover rounded-md border"
                 />
                 <div className="min-w-0">
-                  <div className="font-semibold truncate">{r.produit?.nom || r.produit?.name}</div>
-                  <div className="text-xs text-gray-500 truncate">
+                  <div className="font-semibold truncate text-gray-900 dark:text-gray-100">{r.produit?.nom || r.produit?.name}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 truncate">
                     #{r.id} • {new Date(r.start).toLocaleDateString()} → {new Date(r.end).toLocaleDateString()}
                   </div>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-gray-500 dark:text-gray-400">
                     Adresse : {r.delivery_address || '—'}
                   </div>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-gray-500 dark:text-gray-400">
                     Paiement : {r.payment_mode === 'mobile_money' ? 'Mobile Money' : r.payment_mode === 'on_delivery' ? 'À la livraison' : r.payment_mode}
                   </div>
                 </div>
               </div>
               {/* Statut & montant */}
               <div className="flex flex-col items-start md:items-end gap-2">
-                <span className={`px-2 py-1 rounded text-xs font-semibold ${STATUS_COLORS[r.status] || 'bg-gray-100 text-gray-700'}`}>
+                <span className={`px-2 py-1 rounded text-xs font-semibold ${STATUS_COLORS[r.status] || 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200'}`}>
                   {STATUS_LABELS[r.status] || r.status}
                 </span>
-                <span className="text-lg font-bold text-indigo-600">{r.total ? `${r.total} $` : '--'}</span>
+                <span className="text-lg font-bold text-indigo-600 dark:text-indigo-400">{r.total ? `${r.total} $` : '--'}</span>
                 {/* Actions */}
                 <div className="flex flex-wrap gap-2 mt-2">
                   <Button size="sm" onClick={() => handleShowDetails(r)}>
@@ -184,13 +181,13 @@ export default function ProfileReservations({ user, limit }) {
       {selected && !selected.feedback && (
         <Modal isOpen={!!selected} onClose={() => setSelected(null)} title="Détail de la réservation">
           <div>
-            <div className="mb-2 font-semibold">{selected.produit?.nom || selected.produit?.name}</div>
-            <div className="mb-2 text-sm">Du {new Date(selected.start).toLocaleString()} au {new Date(selected.end).toLocaleString()}</div>
-            <div className="mb-2 text-sm">Quantité : {selected.quantity || 1}</div>
-            <div className="mb-2 text-sm">Montant : {selected.total ? `${selected.total} $` : '--'}</div>
-            <div className="mb-2 text-sm">Adresse : {selected.delivery_address || '—'}</div>
-            <div className="mb-2 text-sm">Paiement : {selected.payment_mode}</div>
-            <div className="mb-2 text-sm">Statut : {STATUS_LABELS[selected.status] || selected.status}</div>
+            <div className="mb-2 font-semibold text-gray-900 dark:text-gray-100">{selected.produit?.nom || selected.produit?.name}</div>
+            <div className="mb-2 text-sm text-gray-900 dark:text-gray-100">Du {new Date(selected.start).toLocaleString()} au {new Date(selected.end).toLocaleString()}</div>
+            <div className="mb-2 text-sm text-gray-900 dark:text-gray-100">Quantité : {selected.quantity || 1}</div>
+            <div className="mb-2 text-sm text-gray-900 dark:text-gray-100">Montant : {selected.total ? `${selected.total} $` : '--'}</div>
+            <div className="mb-2 text-sm text-gray-900 dark:text-gray-100">Adresse : {selected.delivery_address || '—'}</div>
+            <div className="mb-2 text-sm text-gray-900 dark:text-gray-100">Paiement : {selected.payment_mode}</div>
+            <div className="mb-2 text-sm text-gray-900 dark:text-gray-100">Statut : {STATUS_LABELS[selected.status] || selected.status}</div>
             <div className="flex gap-2 mt-4">
               <Button onClick={() => navigate(`/reservation/${selected.id}`)}>Voir la page</Button>
               <Button variant="secondary" onClick={() => setSelected(null)}>Fermer</Button>
@@ -204,7 +201,7 @@ export default function ProfileReservations({ user, limit }) {
         <Modal isOpen={!!selected} onClose={() => setSelected(null)} title="Laisser un avis">
           <div>
             <textarea
-              className="w-full border rounded p-2 mb-4"
+              className="w-full border rounded p-2 mb-4 text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800"
               rows={4}
               placeholder="Votre avis sur cette location…"
               value={feedback}
@@ -222,7 +219,7 @@ export default function ProfileReservations({ user, limit }) {
       {cancelId && (
         <Modal isOpen={!!cancelId} onClose={() => setCancelId(null)} title="Annuler la réservation">
           <div>
-            <p>Confirmer l'annulation de cette réservation ?</p>
+            <p className="text-gray-900 dark:text-gray-100">Confirmer l'annulation de cette réservation ?</p>
             <div className="flex gap-2 mt-4">
               <Button variant="danger" onClick={() => handleCancel(cancelId)}>Oui, annuler</Button>
               <Button variant="secondary" onClick={() => setCancelId(null)}>Non</Button>

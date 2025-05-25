@@ -44,7 +44,6 @@ function getPresetTimes(type) {
   };
 }
 
-
 export default function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -135,12 +134,12 @@ export default function ProductDetail() {
             />
           </div>
           <div className="lg:w-[55.556%] w-full lg:pl-12 mt-6 lg:mt-0 p-4">
-            <h1 className="text-4xl font-bold mb-4 text-gray-900 animate-fadeInUp">{product.nom || product.name}</h1>
-            <p className="text-gray-700 mb-6 leading-relaxed">{product.description}</p>
+            <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white animate-fadeInUp">{product.nom || product.name}</h1>
+            <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">{product.description}</p>
             <div className="mb-4">
-              <label className="block font-medium mb-1">Choisir un tarif</label>
+              <label className="block font-medium mb-1 text-gray-900 dark:text-gray-200">Choisir un tarif</label>
               <select
-                className="border rounded px-2 py-1"
+                className="border rounded px-2 py-1 dark:bg-gray-900 dark:text-gray-100"
                 value={tarifType}
                 onChange={e => setTarifType(e.target.value)}
               >
@@ -151,7 +150,7 @@ export default function ProductDetail() {
               </select>
             </div>
             <div className="mb-4">
-              <label className="block font-medium mb-1">Date de début</label>
+              <label className="block font-medium mb-1 text-gray-900 dark:text-gray-200">Date de début</label>
               <Input
                 type="datetime-local"
                 value={start}
@@ -160,7 +159,7 @@ export default function ProductDetail() {
               />
             </div>
             <div className="mb-4">
-              <label className="block font-medium mb-1">Date de fin</label>
+              <label className="block font-medium mb-1 text-gray-900 dark:text-gray-200">Date de fin</label>
               <Input
                 type="datetime-local"
                 value={end}
@@ -169,10 +168,10 @@ export default function ProductDetail() {
               />
             </div>
             {dateError && (
-              <div className="mb-4 text-red-600">{dateError}</div>
+              <div className="mb-4 text-red-600 dark:text-red-400">{dateError}</div>
             )}
             <div className="mb-4">
-              <label className="block font-medium mb-1">Quantité</label>
+              <label className="block font-medium mb-1 text-gray-900 dark:text-gray-200">Quantité</label>
               <Input
                 type="number"
                 min="1"
@@ -181,8 +180,8 @@ export default function ProductDetail() {
                 required
               />
             </div>
-            <div className="text-xl font-semibold mb-6">
-              Prix total : <span className="text-indigo-600">{price} $</span>
+            <div className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+              Prix total : <span className="text-indigo-600 dark:text-indigo-400">{price} $</span>
             </div>
             <div className="flex flex-wrap gap-4">
               <Button
@@ -219,10 +218,10 @@ export default function ProductDetail() {
               />
             </div>
             <div className={`lg:w-[55.556%] w-full p-4 ${index % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'}`}>
-              <h2 className="text-3xl font-bold mb-4 text-gray-800 transition-colors group-hover:text-indigo-600">
+              <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white transition-colors group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
                 {img.titre || `Section ${index + 1}`}
               </h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
                 {img.description}
               </p>
             </div>

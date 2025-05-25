@@ -15,12 +15,6 @@ import ProfileSettings from '../components/profile/ProfileSettings';
 import ProfileSecurity from '../components/profile/ProfileSecurity';
 import ProfileLoyalty from '../components/profile/ProfileLoyalty';
 import ProfileSupport from '../components/profile/ProfileSupport';
-import DashboardStats from '../components/dashboard/DashboardStats';
-import DashboardChart from '../components/dashboard/DashboardChart';
-import DashboardListings from '../components/dashboard/DashboardListings';
-import DashboardReservations from '../components/dashboard/DashboardReservations';
-import DashboardMessages from '../components/dashboard/DashboardMessages';
-import DashboardFinance from '../components/dashboard/DashboardFinance';
 
 const SECTIONS = [
   { key: 'dashboard',   label: 'Tableau de bord' },
@@ -110,18 +104,11 @@ export default function ProfilePage() {
 
           <div className="mt-8 space-y-8">
             {section === 'dashboard' && (
-              <div className="space-y-6">
-                <DashboardStats />
-                <DashboardChart />
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <DashboardListings />
-                  <DashboardReservations />
-                </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <DashboardMessages />
-                  <DashboardFinance />
-                </div>
-              </div>
+              <>
+                <ProfileLoyalty user={user} />
+                <ProfileReservations user={user} limit={3} />
+                <ProfileWishlist user={user} limit={4} />
+              </>
             )}
             {section === 'personal'      && <ProfilePersonalInfo   user={user} />}
             {section === 'documents'     && <ProfileDocuments      user={user} />}

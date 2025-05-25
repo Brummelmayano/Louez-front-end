@@ -50,6 +50,7 @@ export default function Input({
           disabled={disabled}
           className={clsx(
             'w-full rounded-md border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-violet-500 bg-white dark:bg-gray-800',
+            'text-gray-900 dark:text-gray-100', // <-- Ajout ici pour le texte
             error 
               ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
               : 'border-gray-300 dark:border-gray-700',

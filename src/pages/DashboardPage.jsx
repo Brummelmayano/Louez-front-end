@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -13,10 +13,6 @@ import DashboardFinance from '../components/dashboard/DashboardFinance';
 export default function DashboardPage() {
   const { user } = useAuth();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">

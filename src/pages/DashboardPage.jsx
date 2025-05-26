@@ -27,6 +27,7 @@ export default function DashboardPage() {
         <DashboardSidebar 
           isOpen={isSidebarOpen} 
           onClose={() => setIsSidebarOpen(false)} 
+          user={user}
         />
 
         {/* Main Content */}

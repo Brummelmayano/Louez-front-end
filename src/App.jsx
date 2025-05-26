@@ -18,6 +18,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import ReserveCart from './pages/ReserveCart';
 import './App.css';
+import DashboardPage from './pages/DashboardPage';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(
@@ -70,6 +71,15 @@ export default function App() {
             <Route path="/privacy" element={<PrivacyPage {...commonProps} />} />
             <Route path="/reserve-cart" element={<ReserveCart />} />
             <Route path="*" element={<NotFoundPage {...commonProps} />} />
+            <Route
+              path="/dashboard/*"
+              element={
+                <ProtectedRoute>
+                  <DashboardPage {...commonProps} />
+                </ProtectedRoute>
+              }
+            />
+
           </Routes>
         </div>
       </CartProvider>

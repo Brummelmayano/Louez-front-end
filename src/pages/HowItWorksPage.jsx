@@ -72,7 +72,7 @@ export default function HowItWorksPage({ darkMode, toggleDarkMode }) {
     },
     {
       question: "Que se passe-t-il en cas de dommage ?",
-      answer: "Lors de la remise de la console, vous et le propriétaire vérifiez son état. En cas de dommage pendant la location, notre assurance couvre les réparations, avec une franchise de 50€. Tout incident doit être signalé dans les 24h via l'application."
+      answer: "Lors de la remise de la console, vous et le propriétaire vérifiez son état. En cas de dommage pendant la location, notre assurance couvre les réparations, avec une franchise de 50$. Tout incident doit être signalé dans les 24h via l'application."
     },
     {
       question: "Puis-je annuler ma réservation ?",

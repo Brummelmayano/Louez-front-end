@@ -114,7 +114,7 @@ export default function TermsPage({ darkMode, toggleDarkMode }) {
             </p>
             <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300">
               <li>Le Locataire doit signaler le dommage dans les 24 heures via l'application.</li>
-              <li>Une franchise de 50€ est applicable pour tout sinistre.</li>
+              <li>Une franchise de 50$ est applicable pour tout sinistre.</li>
               <li>Les dommages intentionnels ou résultant d'une négligence grave ne sont pas couverts.</li>
               <li>En cas de vol, une plainte doit être déposée auprès des autorités compétentes.</li>
             </ul>

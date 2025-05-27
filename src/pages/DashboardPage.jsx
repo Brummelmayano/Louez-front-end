@@ -5,17 +5,18 @@ import Footer from '../components/Footer';
 import DashboardSidebar from '../components/dashboard/DashboardSidebar';
 import DashboardStats from '../components/dashboard/DashboardStats';
 import DashboardChart from '../components/dashboard/DashboardChart';
-import DashboardListings from '../components/dashboard/DashboardListings';
-import DashboardReservations from '../components/dashboard/DashboardReservations';
-import DashboardMessages from '../components/dashboard/DashboardMessages';
-import DashboardFinance from '../components/dashboard/DashboardFinance';
+import DashboardWelcome from '../components/dashboard/DashboardWelcome';
+import DashboardRecentBookings from '../components/dashboard/DashboardRecentBookings';
+import DashboardMyItems from '../components/dashboard/DashboardMyItems';
+import DashboardRecentMessages from '../components/dashboard/DashboardRecentMessages'; // <-- Ajout de l'import
 
 export default function DashboardPage() {
   const { user } = useAuth();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className=" pt-20 flex flex-col min-h-screen bg-background dark:bg-gray-900">
+      {/* Header */}
       <Header />
       
       <div className="flex">
@@ -27,7 +28,7 @@ export default function DashboardPage() {
         />
 
         {/* Main Content */}
-        <main className="flex-1 p-6 lg:pl-64">
+        <main className="flex-1 p-6">
           <div className="max-w-7xl mx-auto">
             {/* Mobile Menu Button */}
             <button
@@ -42,16 +43,13 @@ export default function DashboardPage() {
 
             {/* Dashboard Content */}
             <div className="space-y-6">
+              <DashboardWelcome user={user} />
               <DashboardStats />
               <DashboardChart />
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <DashboardListings />
-                <DashboardReservations />
-              </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <DashboardMessages />
-                <DashboardFinance />
-              </div>
+              <DashboardRecentBookings />
+              <DashboardMyItems />
+              <DashboardRecentMessages /> {/* <-- Intégration ici */}
+
             </div>
           </div>
         </main>
